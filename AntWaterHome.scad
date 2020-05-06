@@ -112,7 +112,7 @@ module Room1()
  //   translate([42,15,4]) Room(30,13);
  //   translate([90,14,4]) Room(20,13);
    
-    translate([170,12,18]) Tunnel(100,7);
+    translate([180,13,18]) Tunnel(100,7);
     translate([178,14,4]) Room(20,12);
     translate([212,15,4]) Room(30-2,13);
     translate([255,15,4]) Room(25,13);
@@ -125,7 +125,7 @@ module Room2()
   //  translate([45,15,4]) Room(25,15);
   //  translate([95,14,4]) Room(20-2,15);
    
-    translate([170,12,18]) Tunnel(100,7);
+    translate([180,13,18]) Tunnel(100,7);
     translate([178,14,4]) Room(20-8,15);
     translate([208,15,4]) Room(30-2,15);
     translate([255,15,4]) Room(25,15);
@@ -133,12 +133,12 @@ module Room2()
 
 module Room3()
 {
-    translate([10,12,18]) Tunnel(100,7);
+    translate([10,13,18]) Tunnel(100,7);
     translate([8,15,4]) Room(20-2,13);
     translate([42,15,4]) Room(30,13);
     translate([90,12,4]) Room(20,12);
    
-    translate([170,12,18]) Tunnel(100,7);
+    translate([180,12,18]) Tunnel(100,7);
     translate([178,12,4]) Room(20,12);
     translate([212,15,4]) Room(30-2,13);
     translate([255,15,4]) Room(23,13);
@@ -151,7 +151,7 @@ module Room4()
   //  translate([45,15,4]) Room(25,15);
   //  translate([90,14,4]) Room(20-2,15);
    
-    translate([170,12,18]) Tunnel(100,7);
+    translate([180,13,18]) Tunnel(100,7);
     translate([178,14,4]) Room(20-8,15);
     translate([208,15,4]) Room(30-2,15);
     translate([255,15,4]) Room(25,15);

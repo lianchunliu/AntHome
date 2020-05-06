@@ -1,7 +1,7 @@
 $fn=100;
 // 高15mm
 
-//BigBox();
+BigBox();
 
 //Rooms();
 
@@ -10,8 +10,8 @@ $fn=100;
 //scale([1,1,2])Room(50,20);
 
 
-rotate([-90,0,0])
-WaterBoxLid();
+//rotate([-90,0,0])
+//WaterBoxLid();
 
 module WaterBoxLid()
 {

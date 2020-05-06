@@ -1,10 +1,10 @@
 $fn=100;
 
 hole_d=20.8;
-hole_height=122;
+hole_height=126;
 micro_gap = 0.4;
 
-//AntHome();
+AntHome();
 
 //translate([0,0,40])Steps();
 
@@ -13,7 +13,7 @@ micro_gap = 0.4;
 //TubeLid1();
 //TubeLid2();
 //TubeLid3();
-TubeLid4();
+//TubeLid4();
 
 module TubeLids()
 {
@@ -205,6 +205,7 @@ module TubeRooms()
     
     translate([-1,100-5-3.4/2-hole_d/2,26-hole_d/2])rotate([0,90,0])cylinder(d=hole_d,h=hole_height);
     
+    
     translate([-1,5+3.4/2,26-hole_d/2]) cube([hole_height,hole_d,11]);
     
     translate([-1,50-3.4/2-hole_d,26-hole_d/2]) cube([hole_height,hole_d,11]);
@@ -227,20 +228,20 @@ module TubeRooms()
     
     //左侧后开口
     translate([91,-7.5,0]) {
-        translate([5,5+3.4/2+hole_d/2,-1]) cube([20,15,30]);
-        translate([5,50-3.4/2-hole_d/2,-1]) cube([20,15,30]);
-        translate([5,50+3.4/2+hole_d/2,-1]) cube([20,15,30]);
-        translate([5,100-5-3.4/2-hole_d/2,-1]) cube([20,15,30]);
+        translate([5,5+3.4/2+hole_d/2,-1]) cube([24,15,30]);
+        translate([5,50-3.4/2-hole_d/2,-1]) cube([24,15,30]);
+        translate([5,50+3.4/2+hole_d/2,-1]) cube([24,15,30]);
+        translate([5,100-5-3.4/2-hole_d/2,-1]) cube([24,15,30]);
     }
     //右侧后开口
     translate([174+5,-7.5,0]) {
-        translate([5,5+3.4/2+hole_d/2,-1]) cube([20,15,30]);
-        translate([5,50-3.4/2-hole_d/2,-1]) cube([20,15,30]);
-        translate([5,50+3.4/2+hole_d/2,-1]) cube([20,15,30]);
-        translate([5,100-5-3.4/2-hole_d/2,-1]) cube([20,15,30]);
+        translate([5-4,5+3.4/2+hole_d/2,-1]) cube([24,15,30]);
+        translate([5-4,50-3.4/2-hole_d/2,-1]) cube([24,15,30]);
+        translate([5-4,50+3.4/2+hole_d/2,-1]) cube([24,15,30]);
+        translate([5-4,100-5-3.4/2-hole_d/2,-1]) cube([24,15,30]);
     }
     
-    
+   
     
     
     // 右侧
@@ -376,8 +377,8 @@ module Steps()
             translate([120-5,i*25,18]) cube([15,8,9]);
             translate([170,i*25,18]) cube([15,8,9]);
             
-            translate([125,i*25-1,-1]) cube([0.5,11,30]);
-            translate([174,i*25-1,-1]) cube([0.5,11,30]);
+            translate([127,i*25-1,-1]) cube([0.5,11,30]);
+            translate([172,i*25-1,-1]) cube([0.5,11,30]);
             
         }
 
