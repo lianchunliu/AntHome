@@ -2,9 +2,9 @@ $fn=100;
 
 hole_d=20.8;
 hole_height=122;
-    
+micro_gap = 0.4;
 
-AntHome();
+//AntHome();
 
 //translate([0,0,40])Steps();
 
@@ -13,7 +13,7 @@ AntHome();
 //TubeLid1();
 //TubeLid2();
 //TubeLid3();
-//TubeLid4();
+TubeLid4();
 
 module TubeLids()
 {
@@ -63,20 +63,21 @@ module AntHome()
 module TubeLid1()
 {
     
-    translate([111,5+3.4/2,26-hole_d/2]) difference(){
+    translate([111,5+3.4/2,26-hole_d/2])  {
+        difference(){
      
         union() {
-            translate([0,hole_d/2,0])rotate([0,90,0])cylinder(d=hole_d,h=10);
-            translate([-8,hole_d/2,0])rotate([0,90,0])cylinder(d=16,h=10);
-            translate([0,0,0]) cube([10,hole_d,hole_d/2]);
-            
+            translate([0,(hole_d)/2,0])rotate([0,90,0])cylinder(d=hole_d-micro_gap,h=10);
+            translate([-8,hole_d/2,0])rotate([0,90,0])cylinder(d=16-micro_gap,h=10);
+            translate([0,micro_gap/2,0]) cube([10,hole_d-micro_gap,hole_d/2-micro_gap/2]);
             
         }
         
+        
         translate([-10,hole_d/2-4,-4]) cube([28,8,8]);
         
-        translate([4,1.3,2.8]) cube([7,8,8]);
-        translate([3.9,1.3,2.8]) rotate([-45,0,0])cube([7,9,7]);
+        translate([4,1.3,-4]) cube([16,13.1,16]);
+        //translate([3.9,1.3,2.8]) rotate([-45,0,0])cube([7,9,7]);
         
         translate([2,5,-20]) cube([0.5,11,50]);
         
@@ -84,6 +85,11 @@ module TubeLid1()
         
         rotate([0,0,45])translate([-6,7,-4]) cube([8,8,8]);
     
+        }
+        
+        translate([4,1.3,-3.95])linear_extrude(height=14.15) polygon( points=[[0,0],[5.2,0],[0,5.1]] );
+        
+        //translate([4,1.3,-4]) cube([2,13.1,16]);
     }
 
     
@@ -93,7 +99,8 @@ module TubeLid1()
 module TubeLid2()
 {
     
-    translate([111,50-3.4/2-hole_d,26-hole_d/2]) difference(){
+    translate([111,50-3.4/2-hole_d,26-hole_d/2]) {
+        difference(){
      
         union() {
             translate([0,hole_d/2,0])rotate([0,90,0])cylinder(d=hole_d,h=10);
@@ -105,7 +112,7 @@ module TubeLid2()
         
         translate([-10,hole_d/2-4,-4]) cube([28,8,8]);
         
-        translate([4,5.5,2.8]) cube([7,8,8]);
+        translate([4,5.5,-4]) cube([7,8,16]);
         //translate([3.9,1.3,2.8]) rotate([0,0,0])cube([7,9,7]);
         
         translate([2,5,-20]) cube([0.5,11,50]);
@@ -114,6 +121,8 @@ module TubeLid2()
         
         rotate([0,0,45])translate([-6,7,-4]) cube([8,8,8]);
     
+        }
+        translate([4,1.3,-3.95])linear_extrude(height=14.35) polygon( points=[[0,0],[5.2,0],[0,5.1]] );
     }
 
     
@@ -153,7 +162,8 @@ module TubeLid3()
 module TubeLid4()
 {
     
-    translate([111,100-5-3.4/2-hole_d,26-hole_d/2]) difference(){
+    translate([111,100-5-3.4/2-hole_d,26-hole_d/2]) {
+        difference(){
      
         union() {
             translate([0,hole_d/2,0])rotate([0,90,0])cylinder(d=hole_d,h=10);
@@ -165,8 +175,8 @@ module TubeLid4()
         
         translate([-10,hole_d/2-4,-4]) cube([28,8,8]);
         
-        translate([4,10.5,2.8]) cube([7,8,8]);
-        translate([3.9,7,3.8]) rotate([-45,0,0])cube([7,7,7]);
+        translate([4,10.5-4.1,2.8]) cube([7,8+4.1,8]);
+        //translate([3.9,7,3.8]) rotate([-45,0,0])cube([7,7,7]);
         
         translate([2,5,-20]) cube([0.5,11,50]);
         
@@ -174,6 +184,8 @@ module TubeLid4()
         
         rotate([0,0,45])translate([-6,7,-4]) cube([8,8,8]);
     
+        }
+        translate([4.80,5.3,-4])linear_extrude(height=14.35) polygon( points=[[0,0],[5.2,0],[5.2,5.2]] );
     }
 
     
