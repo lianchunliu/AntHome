@@ -1,15 +1,15 @@
 $fn=100;
 
 
-//AntHome();
+AntHome();
 
 //translate([0,0,40])Steps();
 
 //rotate([90,0,0])
 //AntWaterBox();
 
-rotate([-90,0,0])
-translate([0,10,0])AntWaterBoxLid();
+//rotate([-90,0,0])
+//translate([0,10,0])AntWaterBoxLid();
 
 //projection() AntHomeLid();
 
@@ -26,7 +26,7 @@ module AntHome()
         ScrewHoles();
         Steps();
         
- //       Rooms();
+        Rooms();
         
         WaterBox();
         
@@ -114,7 +114,7 @@ module Room1()
  //   translate([90,14,4]) Room(20,13);
    
     translate([180,13,18]) Tunnel(100,7);
-    translate([178,14,4]) Room(20,12);
+    translate([176,14,4]) Room(22,12);
     translate([212,15,4]) Room(30-2,13);
     translate([255,15,4]) Room(25,13);
 }
@@ -127,7 +127,7 @@ module Room2()
   //  translate([95,14,4]) Room(20-2,15);
    
     translate([180,13,18]) Tunnel(100,7);
-    translate([178,14,4]) Room(20-8,15);
+    translate([176,14,4]) Room(20-6,15);
     translate([208,15,4]) Room(30-2,15);
     translate([255,15,4]) Room(25,15);
 }
@@ -137,7 +137,7 @@ module Room3()
     translate([10,13,18]) Tunnel(100,7);
     translate([8,15,4]) Room(20-2,13);
     translate([42,15,4]) Room(30,13);
-    translate([90,12,4]) Room(20,12);
+    translate([90,12,4]) Room(22,12);
    
     translate([180,12,18]) Tunnel(100,7);
     translate([178,12,4]) Room(20,12);
@@ -153,7 +153,7 @@ module Room4()
   //  translate([90,14,4]) Room(20-2,15);
    
     translate([180,13,18]) Tunnel(100,7);
-    translate([178,14,4]) Room(20-8,15);
+    translate([176,14,4]) Room(20-6,15);
     translate([208,15,4]) Room(30-2,15);
     translate([255,15,4]) Room(25,15);
 }
@@ -219,8 +219,8 @@ module Steps()
             translate([170,i*25,18]) cube([15,8,9]);
             
             
-            if (i != 2)translate([125,i*25-1,-1]) cube([0.5,11,30]);
-            translate([174,i*25-1,-1]) cube([0.5,11,30]);
+            if (i != 2)translate([127,i*25-1,-1]) cube([0.5,11,30]);
+            translate([172,i*25-1,-1]) cube([0.5,11,30]);
             
         }
         
@@ -228,7 +228,7 @@ module Steps()
             translate([170,0*25,18]) cube([15,8,9]);
             
          //   translate([125,0*25-1,-1]) cube([0.8,10.2,30]);
-            translate([174,0*25-1,-1]) cube([0.5,11,30]);
+            translate([172,0*25-1,-1]) cube([0.5,11,30]);
         
 
     }

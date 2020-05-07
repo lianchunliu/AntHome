@@ -3,8 +3,10 @@ $fn=100;
 hole_d=20.8;
 hole_height=126;
 micro_gap = 0.4;
+steps_length=25;
 
-AntHome();
+rotate([0,0,90])
+AntTubeHome();
 
 //translate([0,0,40])Steps();
 
@@ -14,6 +16,46 @@ AntHome();
 //TubeLid2();
 //TubeLid3();
 //TubeLid4();
+//rotate([0,0,90])
+//AntTubeLeftHome();
+
+module AntTubeLeftHome()
+{
+    
+    difference() {
+        union() {
+            translate([0,0,0])cube([100,300,26]);
+           // translate([50-25/2-8,300,5]) cube([50-8,2,26-10]);
+        }
+        //translate([150-25/2-8-0.5,0,5-0.5]) cube([50-8+1,2,26-10+1]);
+        translate([100,0,0])rotate([0,0,90])ScrewHoles();
+        
+        SideDoors();
+        //Steps();
+        //translate([300,0,0])mirror([180,0,0])StepDoors();
+    }
+    
+}
+
+
+module AntTubeHome()
+{
+    
+    difference() {
+        union() {
+            translate([100,0,0])cube([100,300,26]);
+            translate([150-25/2-8,300,5]) cube([50-8,2,26-10]);
+        }
+        translate([150-25/2-8-0.5,0,5-0.5]) cube([50-8+1,2,26-10+1]);
+        translate([200,0,0])rotate([0,0,90])ScrewHoles();
+        Steps();
+        translate([300,0,0])mirror([180,0,0])StepDoors();
+    }
+    
+}
+
+
+
 
 module TubeLids()
 {
@@ -32,6 +74,7 @@ module TubeLids()
     
 }
 
+//rotate([0,0,90])Steps();
 
 module AntHome()
 {
@@ -45,7 +88,7 @@ module AntHome()
         ScrewHoles();
         Steps();
         
-        TubeRooms();
+     //   TubeRooms();
   //      Rooms();
         
         //translate([139,100-3,-1])rotate([0,0,-45])cube([10.2,0.8,30]);
@@ -342,49 +385,80 @@ module Room(x, y, z=3)
     scale([1,1,z])Tunnel(x,y);
 }
 
-module Steps()
+//translate([0,0,40])Steps();
+
+module SideDoors()
 {
-    translate([0,8,0]) color("RED") {
-        translate([150-25/2-8,25,2]) cube([8,8,25]);
-        translate([150+25/2,0,2]) cube([8,8,25]);
-    
-    
-        translate([150-25/2-8,75,2]) cube([8,8,25]);
-        translate([150+25/2,50,2]) cube([8,8,25]);
-
-        translate([150-25/2,25-50,10])rotate([0,0,45]) {cube([43.36,8,8]);cube([0,8,17]);}
-        translate([150-25/2,25,10])rotate([0,0,45]){cube([43.36,8,8]);cube([33,8,17]);}
-        translate([150-25/2,25+50,10])rotate([0,0,45]){cube([43.36,8,8]);{cube([43.36,8,8]);cube([8,8,17]);}}
+    translate([0,10,0]) color("RED") {
+     
         
-        translate([150-25/2,25,18])rotate([0,0,-45])cube([35.4,8,25-16]);
-        translate([150-25/2,25+50,18])rotate([0,0,-45])cube([35.4,8,25-16]);
-        
-        
-        translate([150-25/2-8,25,2]) cube([35,8,8]);
-        translate([150+25/2,25,2]) cube([8,8,25]);
-        
-        translate([150-25/2-8,75,2]) cube([35,8,8]);
-        translate([150+25/2,75,2]) cube([8,8,25]);
-        
-        translate([150-25/2-8,0,2]) cube([35,8,8]);
-        translate([150-25/2-8,0,2]) cube([8,8,25]);
-
-        translate([150-25/2-8,50,2]) cube([35,8,8]);
-        translate([150-25/2-8,50,2]) cube([8,8,25]);
-        
-        
-        for (i = [0:3]) {
-            translate([120-5,i*25,18]) cube([15,8,9]);
-            translate([170,i*25,18]) cube([15,8,9]);
-            
-            translate([127,i*25-1,-1]) cube([0.5,11,30]);
-            translate([172,i*25-1,-1]) cube([0.5,11,30]);
-            
+        for (i = [0:12]) {
+   
+            if ((i+1) % 4 != 0) {
+            translate([-1,i*steps_length,2]) cube([110,21,28]);
+        //    translate([150-steps_length/2-8,i*steps_length,2+8]) rotate([0,0,45]) cube([6,18,8]);
+             translate([5,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             translate([50,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             translate([100-5,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             //translate([162-steps_length/2-8-15,i*steps_length+1,-1]) cube([0.5,11,30]);  
+            }
         }
 
     }
     
+}
+
+module StepDoors()
+{
+    translate([0,10,0]) color("RED") {
+     
+        
+        for (i = [0:12]) {
+   
+            if ((i+1) % 4 != 0) {
+            translate([150-steps_length/2-8-30-5,i*steps_length,2]) cube([30,21,28]);
+            translate([150-steps_length/2-8,i*steps_length,2+8]) rotate([0,0,45]) cube([6,18,8]);
+             translate([150-steps_length/2-8-15,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             translate([162-steps_length/2-8-15,i*steps_length+1,-1]) cube([0.5,11,30]);  
+            }
+        }
+
+    }
     
+}
+
+
+module Steps()
+{
+    translate([0,10,0]) color("RED") {
+     
+        
+        for (i = [0:12]) {
+            translate([150-steps_length/2-8,i*steps_length,2+8]) cube([8,8,25-8]);
+            translate([150+steps_length/2,i*steps_length,2+8]) cube([8,8,25-8]);
+            translate([150+steps_length/2,(i-1)*steps_length,2+8]) rotate([0,0,45])cube([6,(steps_length+4)*sqrt(2),8]);
+            translate([150-steps_length/2-8,i*steps_length,2+8+8]) cube([8+8+steps_length,8,9]);
+            
+            if (i == 12) {
+                translate([168.5-steps_length/2-8,i*steps_length-12,-1]) cube([11,0.5,30]);
+            } else {
+                translate([171.5-steps_length/2-8,i*steps_length-15,-1]) cube([11,0.5,30]);
+            }
+            
+          //  translate([150-steps_length/2-8,i*steps_length,2+8]) rotate([0,0,-45])cube([6,(steps_length+4)*sqrt(2),8]);    
+            
+            //translate([115,i*25,18]) cube([15,8,9]);
+            //translate([170,i*25,18]) cube([15,8,9]);
+            
+            //translate([127,i*25-1,-1]) cube([0.5,11,30]);
+            //translate([172,i*25-1,-1]) cube([0.5,11,30]);
+            
+
+        }
+
+    }
+    
+    StepDoors();
     
     
 }
@@ -402,15 +476,15 @@ module ScrewHoles()
     translate([5,100-5,-1])cylinder(d=3.4,h=30);
     translate([300-5,100-5,-1])cylinder(d=3.4,h=30); 
     
-    translate([5,50,-1])cylinder(d=3.4,h=30);
-    translate([300-5,50,-1])cylinder(d=3.4,h=30);
+   // translate([5,50,-1])cylinder(d=3.4,h=30);
+  //  translate([300-5,50,-1])cylinder(d=3.4,h=30);
     
     
     translate([100,100-5,-1])cylinder(d=3.4,h=30);
     translate([200,100-5,-1])cylinder(d=3.4,h=30);
     
-    translate([100,50,-1])cylinder(d=3.4,h=30);
-    translate([200,50,-1])cylinder(d=3.4,h=30);
+   // translate([100,50,-1])cylinder(d=3.4,h=30);
+   // translate([200,50,-1])cylinder(d=3.4,h=30);
     
     
 }
