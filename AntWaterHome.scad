@@ -1,35 +1,60 @@
 $fn=100;
 
 
-AntHome();
+//AntHome();
 
 //translate([0,0,40])Steps();
 
 //rotate([90,0,0])
 //AntWaterBox();
 
-//rotate([-90,0,0])
-//AntWaterBoxLid();
+rotate([-90,0,0])
+translate([0,10,0])AntWaterBoxLid();
 
 //projection() AntHomeLid();
 
 
+module AntHome()
+{
+    
+    difference() {
+        union() {
+            cube([300,100,26]);
+            translate([150-25/2-8,100,5]) cube([50-8,2,26-10]);
+        }
+        translate([150-25/2-8-0.5,0,5-0.5]) cube([50-8+1,2,26-10+1]);
+        ScrewHoles();
+        Steps();
+        
+ //       Rooms();
+        
+        WaterBox();
+        
+        translate([137.5,100-2,-1])rotate([0,0,0])cube([21,0.5,30]);
+        translate([143,4,-1])rotate([0,0,0])cube([21,0.5,30]);
+        translate([142,51,-1])rotate([0,0,-45])cube([11,0.5,30]);
+        
+        translate([149,70,-1])rotate([0,0,45])cube([11,0.5,30]);
+        translate([149-0.5,20,-1])rotate([0,0,45])cube([11,0.5,30]);
+    }
+}
+
 module AntWaterBoxLid()
 {
     difference() {
-        translate([10,30,4])cube([85,3,26-4+1]);
-        translate([10+4,30-1,8])cube([81-4,5,26-4+1-8]);
+        translate([10,30,4-1])cube([85,3,26-4+1]);
+        translate([10+4,30-1,8-1])cube([81-4,5,26-4+1-8]);
       //  translate([10+2.5+1 + 60 ,31,6.5])cube([20,2,20]);
     }
     
     translate([10+2.5,2.5,6.5])cube([84-4,30.5,2]);
-    translate([10+2.5,2.5,26-1-2.5])cube([84-4,30.5,2]);
-    translate([10+2.5,2.5,6.5])cube([2,30.5,18]);
-    translate([90+0.5,2.5,6.5])cube([2,30.5,18]);
+    translate([10+2.5,2.5,26-1-2.5-2])cube([84-4,30.5,2]);
+    translate([10+2.5,2.5,6.5])cube([2,30.5,16]);
+    translate([90+0.5,2.5,6.5])cube([2,30.5,16]);
     
-    translate([10+2.5 + 20,2.5,6.5])cube([2,30.5,18]);
-    translate([10+2.5 + 40,2.5,6.5])cube([2,30.5,18]);
-    translate([10+2.5 + 60,2.5,6.5])cube([2,30.5,18]);
+    translate([10+2.5 + 20,2.5,6.5])cube([2,30.5,16]);
+    translate([10+2.5 + 40,2.5,6.5])cube([2,30.5,16]);
+    translate([10+2.5 + 60,2.5,6.5])cube([2,30.5,16]);
     
     translate([10+2.5+1 + 60+1.4 ,31,6.5])cube([4,2,16]);
     translate([10+2.5+1 + 60+1.4+4.4 ,31,6.5])cube([4,2,16]);
@@ -69,30 +94,6 @@ module AntHomeLid()
     }
 }
 
-module AntHome()
-{
-    
-    difference() {
-        union() {
-            cube([300,100,26]);
-            translate([150-25/2-8,100,5]) cube([50-8,2,26-10]);
-        }
-        translate([150-25/2-8-0.5,0,5-0.5]) cube([50-8+1,2,26-10+1]);
-        ScrewHoles();
-        Steps();
-        
-        Rooms();
-        
-        WaterBox();
-        
-        translate([137.5,100-2,-1])rotate([0,0,0])cube([21,0.5,30]);
-        translate([143,4,-1])rotate([0,0,0])cube([21,0.5,30]);
-        translate([142,51,-1])rotate([0,0,-45])cube([11,0.5,30]);
-        
-        translate([149,70,-1])rotate([0,0,45])cube([11,0.5,30]);
-        translate([149-0.5,20,-1])rotate([0,0,45])cube([11,0.5,30]);
-    }
-}
 
 module WaterBox()
 {
