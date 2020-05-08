@@ -5,7 +5,7 @@ hole_height=126;
 micro_gap = 0.4;
 steps_length=25;
 
-rotate([0,0,90])
+//rotate([0,0,90])
 AntTubeHome();
 
 //translate([0,0,40])Steps();
@@ -18,6 +18,33 @@ AntTubeHome();
 //TubeLid4();
 //rotate([0,0,90])
 //AntTubeLeftHome();
+
+//rotate([0,90,0])
+//TubeHead();
+
+module TubeHead()
+{
+    difference() {
+    union() {
+    difference() {
+    
+        translate([100+10,120+15+0.2,2+0.2])cube([10,21-0.4,24-0.4]);
+        translate([100,120+25.5,10+4])rotate([0,90,0])cylinder(d=20+0.4,h=20-4);
+        translate([100+6,120+15,2+10])cube([10,21,24]);
+        
+    }
+    
+    
+    translate([100+10,120+25.5,10+4])rotate([0,90,0])cylinder(d=16-0.2,h=8);
+    }
+
+    translate([100,120+20,2+8])cube([30,8,8]);
+    
+    translate([100+7.2,120+15,2+8])rotate([0,0,45])cube([10,8,8]);
+    }
+    
+   
+}
 
 module AntTubeLeftHome()
 {
