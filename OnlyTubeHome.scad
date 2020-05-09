@@ -22,6 +22,32 @@ AntTubeHome();
 //rotate([0,90,0])
 //TubeHead();
 
+//TubeHolder();
+
+module TubeHolder()
+{
+    
+      difference() {
+    union() {
+    difference() {
+    
+        translate([100+10,120+15+0.2,2+0.2])cube([10,21-0.4,24-0.4]);
+        translate([100+9,120+25.5,10+4])rotate([0,90,0])cylinder(d=20+0.4,h=20-4);
+        translate([100+9,120+15,2+10])cube([12,21,24]);
+        translate([100+9+6,120+15+10,-1])cylinder(d=3,h=10);
+        
+    }
+    
+    
+    //translate([100+10,120+25.5,10+4])rotate([0,90,0])cylinder(d=16-0.2,h=8);
+    }
+
+    //translate([100,120+20,2+8])cube([30,8,8]);
+    
+   // translate([100+7.2,120+15,2+8])rotate([0,0,45])cube([10,8,8]);
+    }
+}
+
 module TubeHead()
 {
     difference() {
@@ -31,7 +57,7 @@ module TubeHead()
         translate([100+10,120+15+0.2,2+0.2])cube([10,21-0.4,24-0.4]);
         translate([100,120+25.5,10+4])rotate([0,90,0])cylinder(d=20+0.4,h=20-4);
         translate([100+6,120+15,2+10])cube([10,21,24]);
-        
+        translate([100+9+6,120+15+10,-1])cylinder(d=3,h=5);
     }
     
     
@@ -424,9 +450,9 @@ module SideDoors()
             if ((i+1) % 4 != 0) {
             translate([-1,i*steps_length,2]) cube([110,21,28]);
         //    translate([150-steps_length/2-8,i*steps_length,2+8]) rotate([0,0,45]) cube([6,18,8]);
-             translate([5,i*steps_length+10,-1]) cylinder(d=3,h=30);
-             translate([50,i*steps_length+10,-1]) cylinder(d=3,h=30);
-             translate([100-5,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             translate([5,i*steps_length+10,-1]) cylinder(d=3.4,h=30);
+             translate([50,i*steps_length+10,-1]) cylinder(d=3.4,h=30);
+             translate([100-5,i*steps_length+10,-1]) cylinder(d=3.4,h=30);
              //translate([162-steps_length/2-8-15,i*steps_length+1,-1]) cube([0.5,11,30]);  
             }
         }
@@ -445,7 +471,7 @@ module StepDoors()
             if ((i+1) % 4 != 0) {
             translate([150-steps_length/2-8-30-5,i*steps_length,2]) cube([30,21,28]);
             translate([150-steps_length/2-8,i*steps_length,2+8]) rotate([0,0,45]) cube([6,18,8]);
-             translate([150-steps_length/2-8-15,i*steps_length+10,-1]) cylinder(d=3,h=30);
+             translate([150-steps_length/2-8-15,i*steps_length+10,-1]) cylinder(d=3.4,h=30);
              translate([162-steps_length/2-8-15,i*steps_length+1,-1]) cube([0.5,11,30]);  
             }
         }
@@ -453,6 +479,7 @@ module StepDoors()
     }
     
 }
+
 
 
 module Steps()
@@ -463,7 +490,16 @@ module Steps()
         for (i = [0:12]) {
             translate([150-steps_length/2-8,i*steps_length,2+8]) cube([8,8,25-8]);
             translate([150+steps_length/2,i*steps_length,2+8]) cube([8,8,25-8]);
-            translate([150+steps_length/2,(i-1)*steps_length,2+8]) rotate([0,0,45])cube([6,(steps_length+4)*sqrt(2),8]);
+            
+            
+            difference() {
+                if (i != 12 && i != 0) {
+                translate([150+steps_length/2,(i-1)*steps_length,2+8]) rotate([0,0,45])cube([6,(steps_length+4)*sqrt(2),38]);
+                } else {
+                    translate([150+steps_length/2,(i-1)*steps_length,2+8]) rotate([0,0,45])cube([6,(steps_length+4)*sqrt(2)-0.5,8]);
+                }
+                translate([150+steps_length/2 -26,i*steps_length+8-10,2+8+8]) cube([12,2,8]);
+            }
             translate([150-steps_length/2-8,i*steps_length,2+8+8]) cube([8+8+steps_length,8,9]);
             
             if (i == 12) {
@@ -482,6 +518,7 @@ module Steps()
             
 
         }
+        translate([157-steps_length/2-8,-6,-1]) cube([21,0.5,30]);
 
     }
     
