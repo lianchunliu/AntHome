@@ -3,6 +3,7 @@ $fn=100;
 tube_gap = 300/11;
 box_size=8.5;
 box_gap = tube_gap/2-box_size;
+base_height = 165;
 
 //translate([300,165,0])rotate([0,0,90])
 //translate([0,40,0])
@@ -35,7 +36,9 @@ box_gap = tube_gap/2-box_size;
 //Connectors4();
 
 
-WaterBox();
+//WaterBox();
+
+rotate([90,0,0])BaseAdapter();
 
 module WaterBox()
 {
@@ -125,9 +128,7 @@ module WaterTube()
         translate([-4,0,-1])cylinder(d=4,h=20);
     }
     
-    
-    
-    
+ 
     
 }
 module SideTubeBase()
@@ -135,9 +136,9 @@ module SideTubeBase()
     
     difference() {
         union() {
-            cube([300,165,34]);
+            cube([300,base_height,34]);
            // translate([300,10,5])cube([1,40,26-10]);
-            translate([300-40-10,165,5])cube([40,1,26-10]);
+            translate([300-40-10,base_height,5])cube([40,1,26-10]);
         }
         AntHoles1();
             
@@ -152,27 +153,59 @@ module SideTubeBase()
         
       //  translate([(box_size+box_gap) *2 * i,box_size,10])rotate([0,0,45])translate([0, -box_size*sqrt(2)/2,0])cube([box_size/sqrt(2),(box_size*3/2+box_gap)*sqrt(2),38]);
         
-        translate([292.5,170,0])translate([(box_size+box_gap) *2 * i,box_size,2+8])rotate([0,0,180-45])cube([box_size/sqrt(2),(3/2*box_size+box_gap)*sqrt(2)+100,8]);
+        translate([292.5,base_height+5,0])translate([(box_size+box_gap) *2 * i,box_size,2+8])rotate([0,0,180-45])cube([box_size/sqrt(2),(3/2*box_size+box_gap)*sqrt(2)+100,8]);
         
        // 
         translate([20,14,4])cube([260,120,40]);
-        translate([266.5,162,-1])rotate([0,0,0])cube([11,0.5,50]);
+        translate([266.5,base_height-3,-1])rotate([0,0,0])cube([11,0.5,50]);
         //StepsWithoutHoles();
     }
     
-    translate([292.5-38.343,170-44,0])translate([(box_size+box_gap) *2 * 0,box_size,0])rotate([0,0,180-45])cube([4,(3/2*box_size+box_gap)*sqrt(2)+150,20]);
+    translate([292.5-38.343,base_height+5-44,0])translate([(box_size+box_gap) *2 * 0,box_size,0])rotate([0,0,180-45])cube([4,(3/2*box_size+box_gap)*sqrt(2)+150+(base_height-165)*sqrt(2),20]);
+    
+}
+
+
+module BaseAdapter()
+{
+    difference() {
+    cube([300,20,30]);
+    translate([0,-160+5,0])AntHoles5();
+    translate([0,-140-5,0])AntHoles4();
+    translate([4,-1,4]) cube([300-8,40,30-8]);
+        
+    }
+    
+    translate([105,0,4]) cube([4,20,30-8]);
+    translate([205,0,4]) cube([4,20,30-8]);
+    
+}
+
+module AntHoles5()
+{
+    // translate([5,160,-1])cylinder(d=3.4,h=52);
+    //    translate([300-5,160,-1])cylinder(d=3.4,h=52);
+        
+    //    translate([116,160,-1])cylinder(d=3.4,h=52);
+    //    translate([222,160,-1])cylinder(d=3.4,h=52);
+    
+    translate([5,160,-1])cylinder(d=3.4,h=35);
+    translate([300-5,160,-1])cylinder(d=3.4,h=35);
+    translate([100,160,-1])cylinder(d=3.4,h=35);
+    translate([200,160,-1])cylinder(d=3.4,h=35);
+    
     
 }
 
 module AntHoles4()
 {
-        translate([5,160,-1])cylinder(d=3.4,h=52);
-        translate([300-5,160,-1])cylinder(d=3.4,h=52);
+        translate([5,base_height-5,-1])cylinder(d=3.4,h=52);
+        translate([300-5,base_height-5,-1])cylinder(d=3.4,h=52);
         
-        translate([300-60+5,160,-1])cylinder(d=3.4,h=52);
-        translate([300-60+5-10,160,-1])cylinder(d=3.4,h=52);
-        translate([300-60+5-10-110,160,-1])cylinder(d=3.4,h=52);
-        translate([300-60+5-10-110-10,160,-1])cylinder(d=3.4,h=52);
+        translate([300-60+5,base_height-5,-1])cylinder(d=3.4,h=52);
+        translate([300-60+5-10,base_height-5,-1])cylinder(d=3.4,h=52);
+        translate([300-60+5-10-110,base_height-5,-1])cylinder(d=3.4,h=52);
+        translate([300-60+5-10-110-10,base_height-5,-1])cylinder(d=3.4,h=52);
         //translate([222,160,-1])cylinder(d=3.4,h=52);
     
 }
