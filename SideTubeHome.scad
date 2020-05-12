@@ -15,12 +15,33 @@ box_gap = tube_gap/2-box_size;
 //TubeLid();
 
 //translate([300-60,165,0])rotate([0,0,90])
-SideTubeHolder();
+//SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
+WaterTube();
 
 //SideTubeBase();
 
+
+module WaterTube()
+{
+    difference() {
+        union() {
+            cylinder(d=16, h=100);
+            cylinder(d=20, h=5);
+        }
+        translate([0,-10,50])cube([20,20,120]);
+        translate([0,0,10])cylinder(d=14, h=80);
+        translate([0,-10,100-8])rotate([0,-45,0])cube([20,20,20]);
+        
+        translate([-4,0,-1])cylinder(d=4,h=20);
+    }
+    
+    
+    
+    
+    
+}
 module SideTubeBase()
 {
     
