@@ -38,7 +38,19 @@ base_height = 165;
 
 //WaterBox();
 
-rotate([90,0,0])BaseAdapter();
+//rotate([90,0,0])BaseAdapter();
+
+TubeCellWall();
+
+module TubeCellWall()
+{
+    difference() {
+        cylinder(d=16,h=240);
+        translate([0,0,-1])cylinder(d=15.6, h=250);
+        translate([0,-20,-1]) cube([50,50,250]);
+        
+    }
+}
 
 module WaterBox()
 {
