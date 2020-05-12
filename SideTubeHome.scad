@@ -26,6 +26,36 @@ box_gap = tube_gap/2-box_size;
 //SideTubeBase();
 
 
+//TubeSep();
+
+
+//Connectors();
+
+
+module Connectors()
+{
+    for (j = [0:4])
+    for (i = [0:3]) {
+        translate([21*i,11*j,0])difference() {
+            cube([20,10,2]);
+            translate([5,5,-1])cylinder(d=3.4,h=8);
+            translate([15,5,-1])cylinder(d=3.4,h=8);
+        }
+        
+    }
+    
+}
+
+
+module TubeSep()
+{
+    difference() {
+        cylinder(d=16,h=4);
+        translate([2,-4,-1])cube([9,8,8]);
+    }
+}
+
+
 module WaterTower()
 {
     difference() {
