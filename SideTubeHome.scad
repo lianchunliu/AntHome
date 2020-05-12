@@ -45,7 +45,7 @@ TubeCellWall();
 module TubeCellWall()
 {
     difference() {
-        cylinder(d=16,h=240);
+        cylinder(d=16,h=100);
         translate([0,0,-1])cylinder(d=15.6, h=250);
         translate([0,-20,-1]) cube([50,50,250]);
         
