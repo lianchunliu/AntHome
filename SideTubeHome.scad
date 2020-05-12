@@ -5,7 +5,7 @@ box_size=8.5;
 box_gap = tube_gap/2-box_size;
 
 //translate([300,165,0])rotate([0,0,90])
-//SideTubeHome();
+//translate([0,40,0])SideTubeHome();
 
 //translate([2.25,10,40])Steps();
 
@@ -18,10 +18,37 @@ box_gap = tube_gap/2-box_size;
 //SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
-WaterTube();
+//WaterTube();
+
+//rotate([0,-90,0])
+//WaterTower();
 
 //SideTubeBase();
 
+
+module WaterTower()
+{
+    difference() {
+        translate([0,0,0])cube([110,40,30]);
+    
+       
+        translate([5,40-5,-1])cylinder(d=3.4,h=100);
+        translate([100,40-5,-1])cylinder(d=3.4,h=100);
+        
+        
+        
+        translate([40,4-0.5,-1])cube([65,23,40]);
+        
+        translate([45,4+11,11+4])rotate([0,90,0])cylinder(d=23,h=100);
+        translate([4+8+6-0.1,4+11,11+4])rotate([0,90,0])cylinder(d=21,h=100);
+        
+        translate([-1,4+11,11+4])rotate([0,90,0])cylinder(d=4,h=100);
+        translate([4,6,6])cube([8+6,18,18]);
+        
+    }
+    
+    
+}
 
 module WaterTube()
 {
