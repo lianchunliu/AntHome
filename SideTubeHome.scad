@@ -5,7 +5,9 @@ box_size=8.5;
 box_gap = tube_gap/2-box_size;
 
 //translate([300,165,0])rotate([0,0,90])
-//translate([0,40,0])SideTubeHome();
+//translate([0,40,0])
+//rotate([0,0,90])
+//SideTubeHome();
 
 //translate([2.25,10,40])Steps();
 
@@ -30,6 +32,35 @@ box_gap = tube_gap/2-box_size;
 
 
 //Connectors();
+//Connectors4();
+
+
+WaterBox();
+
+module WaterBox()
+{
+    difference() {
+        translate([110,0,0])cube([200-10,40,30]);
+        translate([110+2+4,2,2])cube([200-10-4-4,40-4,30-4]);
+        translate([4+8+6-0.1,4+11,11+4])rotate([0,90,0])cylinder(d=21,h=100);
+    }
+}
+
+module Connectors4()
+{
+    for (j = [0:2])
+    for (i = [0:2]) {
+        translate([21*i,21*j,0])difference() {
+            cube([20,20,2]);
+            translate([5,5,-1])cylinder(d=3.4,h=8);
+            translate([15,5,-1])cylinder(d=3.4,h=8);
+            translate([15,15,-1])cylinder(d=3.4,h=8);
+            translate([5,15,-1])cylinder(d=3.4,h=8);
+        }
+        
+    }
+    
+}
 
 
 module Connectors()
