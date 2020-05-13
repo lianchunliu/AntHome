@@ -24,12 +24,12 @@ base_height = 165;
 //WaterTube();
 
 //rotate([0,-90,0])
-WaterTower();
+//WaterTower();
 
 //SideTubeBase();
 
 
-//TubeSep();
+TubeSeps();
 
 
 //Connectors();
@@ -41,6 +41,13 @@ WaterTower();
 //rotate([90,0,0])BaseAdapter();
 
 //TubeCellWall();
+
+module TubeSeps()
+{
+    for(i = [0:2])
+        for (j = [0:2])
+            translate([17*i,17*j,0])TubeSep();
+}
 
 module TubeCellWall()
 {
