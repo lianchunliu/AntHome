@@ -26,10 +26,12 @@ base_height = 165;
 //rotate([0,-90,0])
 //WaterTower();
 
+WaterTubeHead();
+
 //SideTubeBase();
 
 
-TubeSeps();
+//TubeSeps();
 
 
 //Connectors();
@@ -41,6 +43,68 @@ TubeSeps();
 //rotate([90,0,0])BaseAdapter();
 
 //TubeCellWall();
+
+//DoubleTubeHome();
+
+//FullSizeWaterBox();
+
+
+module WaterTubeHead() 
+{
+    difference() {
+        union() {
+        cylinder(d=16,h=10);
+        translate([-5,-5,0]) cube([10,10,20]);
+        }
+        
+        for (i = [1:2])
+            translate([-5+2*i+2,-5+1,0]) cube([1,1,30]);
+       // for (i = [0:3])
+       //     translate([-5+2*i+2,-5+3,0]) cube([1,1,30]);
+       // for (i = [0:3])
+       //     translate([-5+2*i+2,-5+5,0]) cube([1,1,30]);
+        for (i = [0:3:3])
+            translate([-5+2*i+2,-5+8,0]) cube([1,1,30]);
+        
+         translate([-6,-5,10])rotate([30,0,0])cube([16,16,16]);
+        
+    }
+    
+   
+}
+
+module FullSizeWaterBox()
+{
+    difference() {
+        cube([300,100,30]);
+        translate([4,2+10,4])cube([300-8,100-4-20,30-4+10]);
+        
+        //translate([0,-160+5,0])AntHoles5();
+        translate([0,-160+5,0])AntHoles4();
+        translate([0,-160+100-5,0])AntHoles4();
+        
+    }
+}
+
+module DoubleTubeHome()
+{
+    difference() {
+        union() {
+            cube([300,60,26]);
+            translate([300,10,5])cube([1,40,26-10]);
+        }
+        translate([0,10-0.2,5-0.2])cube([1,40+0.4,26-10+0.4]);
+        
+        ScrewHoles();
+        
+        translate([2.5,10,0])Steps();
+        
+        
+    } 
+    
+    translate([10,40,0])RightStepDoors();
+    
+}
 
 module TubeSeps()
 {
@@ -131,7 +195,7 @@ module WaterTower()
         
     }
     
-    translate([0,6+4,6+4])cube([22,2,4]);
+   // translate([0,6+4,6+4])cube([22,2,4]);
     
     
 }
@@ -147,7 +211,7 @@ module WaterTube()
         translate([0,0,10])cylinder(d=14, h=80);
         translate([0,-10,100-8])rotate([0,-45,0])cube([20,20,20]);
         
-        translate([-4,0,-1])cylinder(d=4,h=20);
+        translate([-5,0,-1])cylinder(d=4,h=20);
     }
     
  
@@ -380,6 +444,28 @@ module StepsWithoutHoles() {
 module Steps()
 {   
     StepsWithoutHoles();
+    
+    StepDoors();
+    
+}
+
+
+module RightStepDoors()
+{
+    
+    color("GREEN")
+    for (i = [0:9]) {
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6,2+2*box_size+box_gap+10,2])cube([24,19,48]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-1,2+2*box_size+box_gap+10+19+2,-1])cube([11,0.5,30]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,2+2*box_size+box_gap+10+5,-1])cylinder(d=3.4,h=30);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6+8,2+2*box_size+box_gap+10,2+8])cube([8,20,8]); // door holes
+    }
+    
+    
+}
+
+module StepDoors()
+{
     
     color("GREEN")
     for (i = [0:9]) {
