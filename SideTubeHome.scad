@@ -63,10 +63,10 @@ module WaterTubeHead()
        //     translate([-5+2*i+2,-5+3,0]) cube([1,1,30]);
        // for (i = [0:3])
        //     translate([-5+2*i+2,-5+5,0]) cube([1,1,30]);
-        for (i = [0:3:3])
-            translate([-5+2*i+2,-5+8,0]) cube([1,1,30]);
+        //for (i = [0:3:3])
+            translate([-5+2*0+1,-5+7,0]) cube([8,2,30]);
         
-         translate([-6,-5,10])rotate([30,0,0])cube([16,16,16]);
+         translate([-8,-15,10])rotate([0,0,0])cube([16,16,16]);
         
     }
     
