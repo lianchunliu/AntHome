@@ -18,7 +18,7 @@ base_height = 165;
 //TubeLid();
 
 //translate([300-60,165,0])rotate([0,0,90])
-//SideTubeHolder();
+SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
 //WaterTube();
@@ -26,7 +26,7 @@ base_height = 165;
 //rotate([0,-90,0])
 //WaterTower();
 
-WaterTubeHead();
+//WaterTubeHead();
 
 //SideTubeBase();
 
@@ -47,6 +47,7 @@ WaterTubeHead();
 //DoubleTubeHome();
 
 //FullSizeWaterBox();
+
 
 
 module WaterTubeHead() 
@@ -324,46 +325,50 @@ module SideTubeHolder()
     
     difference() {
         union() {
-            cube([300,120,26]);
+            cube([300,120,30]);
         //    translate([300,10,5])cube([1,40,26-10]);
         }
        // translate([0,10-0.2,5-0.2])cube([1,40+0.4,26-10+0.4]);
        
-        translate([5+0*72.5,5,-1]) cylinder(d=3.4,h=30);
+        translate([5+0*72.5,5,-1]) cylinder(d=3.4,h=35);
     //translate([100,5,-1]) cylinder(d=3.4,h=30);
     //translate([200,5,-1]) cylinder(d=3.4,h=30);
-    translate([300-5,5,-1]) cylinder(d=3.4,h=30);
+    translate([300-5,5,-1]) cylinder(d=3.4,h=35);
     
-    translate([5,120-5,-1]) cylinder(d=3.4,h=30);
+    translate([5,120-5,-1]) cylinder(d=3.4,h=35);
     //translate([63,37,-1]) cylinder(d=3.4,h=30);
     //translate([145,37,-1]) cylinder(d=3.4,h=30);
     //translate([227,37,-1]) cylinder(d=3.4,h=30);
    // translate([200-8,5,-1]) cylinder(d=3.4,h=30);
-    translate([300-5,120-5,-1]) cylinder(d=3.4,h=30);
+    translate([300-5,120-5,-1]) cylinder(d=3.4,h=35);
         
       //  translate([2.5,10,0])Steps();
      
-      translate([2.5,10,0])color("GREEN")
+    translate([10,-1,2])cube([280,190,48]);
+        
+    
+        
+    translate([2.5,10,0])color("GREEN")
     for (i = [0:9]) {
         
-      //  translate([(box_size+box_gap) *2 * i + box_size+box_gap,3*box_size+box_gap,10])cube([6,5,48]);
         
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6,-11,2])cube([24,190,48]);
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,-5,-1])cylinder(d=3.4,h=30);
+      //  translate([(box_size+box_gap) *2 * i + box_size+box_gap-6,-11,2])cube([30,190,48]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,-5,-1])cylinder(d=3.4,h=35);
         translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,110-5,-1])cylinder(d=3.4,h=30);
         translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,50,-1])cylinder(d=3.4,h=30);
-        
-     //   translate([(box_size+box_gap) *2 * i + box_size+box_gap-1,0+2*box_size+box_gap+10,-1])cube([11,0.5,30]);
-        
-    //    translate([(box_size+box_gap) *2 * i + box_size+box_gap+4,2*box_size+box_gap-8,-1])rotate([0,0,45])cube([11,0.5,30]);
+   
     }
     
-    // translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-14.6,2*box_size+box_gap-12.8,-1])rotate([0,0,45])cube([11,0.5,30]);
-    
-     //translate([(box_size+box_gap) *2 * 10 + box_size+box_gap+3,2*box_size+box_gap-9,-1])rotate([0,0,45])cube([11,0.5,30]);
-    
+     translate([-1,60,20])rotate([0,90,0])cylinder(d=3.4,h=400);
+    translate([-1,30,20])rotate([0,90,0])cylinder(d=3.4,h=400);
+    translate([-1,120-30,20])rotate([0,90,0])cylinder(d=3.4,h=400);
     
     }
+    
+    translate([10,30,2])cube([280,2,4]);
+    translate([0,120-30-2,2])cube([300,2,4]);
+    
+   
 }
 
 module HomeLidHolds()
