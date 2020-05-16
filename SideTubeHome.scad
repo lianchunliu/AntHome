@@ -18,7 +18,7 @@ base_height = 165;
 //TubeLid();
 
 //translate([300-60,165,0])rotate([0,0,90])
-SideTubeHolder();
+//SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
 //WaterTube();
@@ -28,7 +28,7 @@ SideTubeHolder();
 
 //WaterTubeHead();
 
-//SideTubeBase();
+SideTubeBase();
 
 
 //TubeSeps();
@@ -55,7 +55,7 @@ module WaterTubeHead()
     difference() {
         union() {
         cylinder(d=16,h=10);
-        translate([-5,-5,0]) cube([10,10,20]);
+        translate([-5,-5,0]) cube([10,10,30]);
         }
         
         for (i = [1:2])
@@ -65,9 +65,9 @@ module WaterTubeHead()
        // for (i = [0:3])
        //     translate([-5+2*i+2,-5+5,0]) cube([1,1,30]);
         //for (i = [0:3:3])
-            translate([-5+2*0+1,-5+7,0]) cube([8,2,30]);
+            translate([-5+2*0+1,-5+7,-1]) cube([8,2,40]);
         
-         translate([-8,-15,10])rotate([0,0,0])cube([16,16,16]);
+         translate([-8,-15,10])rotate([0,0,0])cube([16,16,160]);
         
     }
     
@@ -118,7 +118,7 @@ module TubeCellWall()
 {
     difference() {
         cylinder(d=16,h=100);
-        translate([0,0,-1])cylinder(d=15.6, h=250);
+        translate([0,0,-1])cylinder(d=15.2, h=250);
         translate([0,-20,-1]) cube([50,50,250]);
         
     }
@@ -223,7 +223,7 @@ module SideTubeBase()
     
     difference() {
         union() {
-            cube([300,base_height,34]);
+            cube([300,base_height,30]);
            // translate([300,10,5])cube([1,40,26-10]);
             translate([300-40-10,base_height,5])cube([40,1,26-10]);
         }
