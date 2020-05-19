@@ -3,12 +3,12 @@ $fn=100;
 tube_gap = 300/11;
 box_size=8.5;
 box_gap = tube_gap/2-box_size;
-base_height = 165;
+base_height = 170;
 
 //translate([300,165,0])rotate([0,0,90])
 //translate([0,40,0])
 //rotate([0,0,90])
-//SideTubeHome();
+SideTubeHome();
 
 //translate([2.25,10,40])Steps();
 
@@ -28,7 +28,7 @@ base_height = 165;
 
 //WaterTubeHead();
 
-SideTubeBase();
+//SideTubeBase();
 
 
 //TubeSeps();
@@ -486,7 +486,7 @@ module StepDoors()
         translate([(box_size+box_gap) *2 * i + box_size+box_gap+4,2*box_size+box_gap-8,-1])rotate([0,0,45])cube([11,0.5,30]);
     }
     
-     translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-14.6,2*box_size+box_gap-12.8,-1])rotate([0,0,45])cube([11,0.5,30]);
+     translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-14.4,2*box_size+box_gap-13,-1])rotate([0,0,45])cube([11,0.5,30]);
     
      translate([(box_size+box_gap) *2 * 10 + box_size+box_gap+3,2*box_size+box_gap-9,-1])rotate([0,0,45])cube([11,0.5,30]);
     
