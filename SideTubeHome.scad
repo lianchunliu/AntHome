@@ -21,10 +21,10 @@ base_height = 170;
 //SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
-//WaterTube();
+WaterTube();
 
 //rotate([0,-90,0])
-WaterTower();
+//WaterTower();
 
 //WaterTubeHead();
 
@@ -217,10 +217,13 @@ module WaterTube()
         translate([0,-10,100-8])rotate([0,-45,0])cube([20,20,20]);
         
         translate([-5,0,-1])cylinder(d=4,h=20);
+        
     }
     
- 
-    
+    difference() {
+    translate([0,0,20])cylinder(d=14, h=2);
+    translate([-5,0,-1])cylinder(d=4,h=80);
+    }
 }
 module SideTubeBase()
 {
