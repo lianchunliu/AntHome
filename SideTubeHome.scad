@@ -217,6 +217,7 @@ module WaterTube()
         translate([0,-10,100-8])rotate([0,-45,0])cube([20,20,20]);
         
         translate([-5,0,-1])cylinder(d=4,h=20);
+        translate([5,0,-1])cylinder(d=1,h=20);
         
     }
     
