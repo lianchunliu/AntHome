@@ -21,7 +21,7 @@ base_height = 170;
 //SideTubeHolder();
 //translate([300-60-120,165,0])rotate([0,0,90])SideTubeHolder();
 
-WaterTube();
+//WaterTube();
 
 //rotate([0,-90,0])
 //WaterTower();
@@ -217,7 +217,7 @@ module WaterTube()
         translate([0,-10,100-8])rotate([0,-45,0])cube([20,20,20]);
         
         translate([-5,0,-1])cylinder(d=4,h=20);
-        translate([5,0,-1])cylinder(d=1,h=20);
+        translate([5,0,-1])cylinder(d=2,h=20);
         
     }
     
@@ -398,7 +398,42 @@ module HomeLid()
     
 }
 
+STubeLid();
 
+module STubeLid()
+{
+    difference() {
+        translate([10.3,44.2,2.1])cube([24-0.3,15.8,23.8]);
+      //  translate([10.3+10+2,44+2,2.1+12])rotate([-90,0,0])cylinder(d=20.3,h=18);
+        translate([10.3+10+2-20.3/2,44+2,2.1+12 + 20.3/2])rotate([-90,0,0])MyCube(20.3,20.3,18);
+     
+        translate([16.3,30,10])cube([8,50,8]);
+        
+        translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-6 + 24/2+7+2.5,60-5,-1])cylinder(d=3,h=10);
+    }
+    
+    difference() {
+        //translate([10.3+10+2,44+2,2.1+12])rotate([-90,0,0])cylinder(d=16,h=14);
+        translate([10.3+10+2 - 8,44+2,2.1+12+8])rotate([-90,0,0])MyCube(16,16,14);
+     
+        translate([16.3,30,10])cube([8,50,8]);
+        translate([16.3,58.2,10])rotate([0,0,45])cube([8,20,8]);
+    }
+    
+    
+}
+
+module MyCube(x,y,z) 
+{
+    translate([1,1,1])minkowski()
+    {
+      cube([x-2,y-2,z-2]);
+      cylinder(r=1,h=1);
+    }
+
+    
+    
+}
 
 module TubeLid()
 {
