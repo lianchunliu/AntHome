@@ -26,7 +26,7 @@ base_height = 170;
 //rotate([0,-90,0])
 //WaterTower();
 
-//WaterTubeHead();
+WaterTubeHead();
 
 //SideTubeBase();
 
@@ -58,8 +58,9 @@ module WaterTubeHead()
         translate([-5,-5,0]) cube([10,10,30]);
         }
         
-        for (i = [1:2])
-            translate([-5+2*i+2,-5+1,0]) cube([1,1,30]);
+        translate([-5+2*1+2,-5+1,0]) cube([2,2,30]);
+        //for (i = [1:2])
+        //    translate([-5+2*i+2,-5+1,0]) cube([2,2,30]);
        // for (i = [0:3])
        //     translate([-5+2*i+2,-5+3,0]) cube([1,1,30]);
        // for (i = [0:3])
@@ -398,7 +399,7 @@ module HomeLid()
     
 }
 
-STubeLid();
+//STubeLid();
 
 module STubeLid()
 {
