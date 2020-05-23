@@ -26,7 +26,7 @@ base_height = 170;
 //rotate([0,-90,0])
 //WaterTower();
 
-WaterTubeHead();
+//WaterTubeHead();
 
 //SideTubeBase();
 
@@ -48,7 +48,78 @@ WaterTubeHead();
 
 //FullSizeWaterBox();
 
+//rotate([90,0,0])
+//BigTubeLid();
 
+//BigWaterTube();
+
+//TubeRoom(50);
+translate([0,0,-2])TubeRoomSep();
+
+module TubeRoomSep()
+{
+    difference() {
+        cylinder(d=21-0.2,h=2);
+        translate([-7.5,0,-2])cylinder(d=3,h=10);
+        translate([-5.0,-3,-1]) cube([7,7,4]);
+    }
+}
+
+module TubeRoom(tube_height)
+{
+    difference() {
+        cylinder(d=21-0.2,h=tube_height);
+        translate([-2,-4.4,-2])MyCube(22,22,tube_height+8);
+        translate([-7.5,0,-2])cylinder(d=3,h=10);
+        translate([-7.5,0,tube_height-2-6])cylinder(d=3,h=10);
+    }
+    
+   // translate([2,0,0])cube([8,0.4,50]);
+   // translate([-6,5,0])cube([14.4,0.4,50]);
+   // translate([-8,8,0])cube([8,0.4,50]);
+}
+
+module BigWaterTube()
+{
+    difference() {
+        union() {
+            cylinder(d=21-0.6, h=100);
+            cylinder(d=25, h=5);
+        }
+        translate([0,-13,50])cube([26,26,120]);
+        translate([0,0,10])cylinder(d=17, h=80-2);
+        translate([0,-13,100-10])rotate([0,-45,0])cube([26,26,20]);
+        
+        translate([-6.4,0,-1])cylinder(d=4.2,h=20);
+        translate([5,0,-1])cylinder(d=2.4,h=20);
+        
+    }
+    
+    difference() {
+    translate([0,0,20])cylinder(d=20, h=2);
+    translate([-6.4,0,-1])cylinder(d=4.2,h=80);
+    }
+}
+
+module BigTubeLid()
+{
+    difference() {
+        translate([10.2,44.2,0.1])cube([26-0.2,15.8,25.8]);
+        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=25.2,h=18);
+        translate([16.3,30,10])cube([8,50,8]);
+        
+        translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-6 + 24/2+7+2.5,60-5,-1])cylinder(d=3,h=10);
+    }
+    
+    difference() {
+        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21,h=12);
+     
+        translate([16.3,30,10])cube([8,50,8]);
+        translate([16.3,56.4,10])rotate([0,0,45])cube([8,20,8]);
+    }
+    
+    
+}
 
 module WaterTubeHead() 
 {
@@ -428,8 +499,8 @@ module MyCube(x,y,z)
 {
     translate([1,1,1])minkowski()
     {
-      cube([x-2,y-2,z-2]);
-      cylinder(r=1,h=1);
+      cube([x-4,y-4,z-4]);
+      cylinder(r=4,h=1);
     }
 
     
@@ -460,7 +531,7 @@ module SideTubeHome()
 {
     difference() {
         union() {
-            cube([300,60,26]);
+            translate([0,0,-2])cube([300,60,28]);
             translate([300,10,5])cube([1,40,26-10]);
         }
         translate([0,10-0.2,5-0.2])cube([1,40+0.4,26-10+0.4]);
@@ -521,18 +592,18 @@ module StepDoors()
         
       //  translate([(box_size+box_gap) *2 * i + box_size+box_gap,3*box_size+box_gap,10])cube([6,5,48]);
         
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6,2+2*box_size+box_gap+10,2])cube([24,19,48]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6,2+2*box_size+box_gap+10,0])cube([26,19,48]);
         //translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,8+2*box_size+box_gap+10+4,-1])cylinder(d=3.4,h=30);
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,50-5,-1])cylinder(d=3.4,h=30);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-6 + 24/2+7,50-5,-3])cylinder(d=3.4,h=30);
         
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap-1,0+2*box_size+box_gap+10,-1])cube([11,0.5,30]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap-1,0+2*box_size+box_gap+10,-3])cube([11,0.6,30]);
         
-        translate([(box_size+box_gap) *2 * i + box_size+box_gap+4,2*box_size+box_gap-8,-1])rotate([0,0,45])cube([11,0.5,30]);
+        translate([(box_size+box_gap) *2 * i + box_size+box_gap+4,2*box_size+box_gap-8,-3])rotate([0,0,45])cube([11,0.6,30]);
     }
     
-     translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-14.4,2*box_size+box_gap-13,-1])rotate([0,0,45])cube([11,0.5,30]);
+     translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-14.4,2*box_size+box_gap-13,-3])rotate([0,0,45])cube([11,0.6,30]);
     
-     translate([(box_size+box_gap) *2 * 10 + box_size+box_gap+3,2*box_size+box_gap-9,-1])rotate([0,0,45])cube([11,0.5,30]);
+     translate([(box_size+box_gap) *2 * 10 + box_size+box_gap+3,2*box_size+box_gap-9,-3])rotate([0,0,45])cube([11,0.6,30]);
     
     
 }
@@ -541,16 +612,16 @@ module StepDoors()
 module ScrewHoles()
 {
     
-    translate([5+0*72.5,5,-1]) cylinder(d=3.4,h=30);
-    translate([100,5,-1]) cylinder(d=3.4,h=30);
-    translate([200,5,-1]) cylinder(d=3.4,h=30);
-    translate([300-5,5,-1]) cylinder(d=3.4,h=30);
+    translate([5+0*72.5,5,-3]) cylinder(d=3.4,h=30);
+    translate([100,5,-3]) cylinder(d=3.4,h=30);
+    translate([200,5,-3]) cylinder(d=3.4,h=30);
+    translate([300-5,5,-3]) cylinder(d=3.4,h=30);
     
-    translate([5,60-5,-1]) cylinder(d=3.4,h=30);
-    translate([63,37,-1]) cylinder(d=3.4,h=30);
-    translate([145,37,-1]) cylinder(d=3.4,h=30);
-    translate([227,37,-1]) cylinder(d=3.4,h=30);
+    translate([5,60-5,-3]) cylinder(d=3.4,h=30);
+    translate([63,37,-3]) cylinder(d=3.4,h=30);
+    translate([145,37,-3]) cylinder(d=3.4,h=30);
+    translate([227,37,-3]) cylinder(d=3.4,h=30);
    // translate([200-8,5,-1]) cylinder(d=3.4,h=30);
-    translate([300-5,60-5,-1]) cylinder(d=3.4,h=30);
+    translate([300-5,60-5,-3]) cylinder(d=3.4,h=30);
     
 }
