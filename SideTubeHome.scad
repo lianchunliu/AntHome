@@ -24,7 +24,7 @@ base_height = 170;
 //WaterTube();
 
 //rotate([0,-90,0])
-WaterTower();
+//WaterTower();
 
 //WaterTubeHead();
 
@@ -57,6 +57,20 @@ WaterTower();
 //translate([0,0,-2])TubeRoomSep();
 
 //TubeConnector(26);
+
+WaterTowerFoot();
+
+//difference() {
+//cylinder(d=25,h=4);
+//cylinder(d=10,h=4);
+//}
+module WaterTowerFoot()
+{
+    difference() {
+        cylinder(d=26-0.6,h=6);
+        cylinder(d=4,h=9);
+    }
+}
 
 module TubeConnector(x)
 {
@@ -155,7 +169,7 @@ module WaterTubeHead()
 {
     difference() {
         union() {
-        cylinder(d=16,h=10);
+        cylinder(d=21,h=10);
         translate([-5,-5,0]) cube([10,10,30]);
         }
         
