@@ -24,7 +24,7 @@ base_height = 170;
 //WaterTube();
 
 //rotate([0,-90,0])
-//WaterTower();
+WaterTower();
 
 //WaterTubeHead();
 
@@ -53,8 +53,25 @@ base_height = 170;
 
 //BigWaterTube();
 
-//TubeRoom(50);
-translate([0,0,-2])TubeRoomSep();
+//TubeRoom(55);
+//translate([0,0,-2])TubeRoomSep();
+
+//TubeConnector(26);
+
+module TubeConnector(x)
+{
+    difference() {
+        union() {
+            cube([x+8,x+8,20]);
+            translate([(x+8)/2,(x+8)/2,4])cylinder(d=9,h=25);
+        }
+        translate([4,4,-10])cube([x,x,20]);
+        translate([(x+8)/2,(x+8)/2,4])cylinder(d=21,h=6+8);
+        translate([(x+8)/2,(x+8)/2,4])cylinder(d=7,h=30);
+    }
+    
+        
+}
 
 module TubeRoomSep()
 {
@@ -68,11 +85,21 @@ module TubeRoomSep()
 module TubeRoom(tube_height)
 {
     difference() {
-        cylinder(d=21-0.2,h=tube_height);
-        translate([-2,-4.4,-2])MyCube(22,22,tube_height+8);
-        translate([-7.5,0,-2])cylinder(d=3,h=10);
-        translate([-7.5,0,tube_height-2-6])cylinder(d=3,h=10);
+        cylinder(d=21-0.0,h=tube_height);
+        translate([-1,-4.4,-2])MyCube(8,22,tube_height+8);
+        translate([-9,-4,-2])cube([3,8,6]);
+        
+        translate([4,-5,-2])cube([9,20,tube_height+4]);
+      
     }
+    
+    difference() {
+        cylinder(d=21-0.2,h=2);
+        translate([-9,-4,-2])cube([3,8,6]);
+        translate([-5.0+1,-3,-1]) cube([7,7,4]);
+    }
+    translate([-9+0.2,-4+0.2,tube_height-4])cube([3-0.4,8-0.4,6]);
+     // translate([-7.5,0,tube_height-2-6])cube([2,4,10]);
     
    // translate([2,0,0])cube([8,0.4,50]);
    // translate([-6,5,0])cube([14.4,0.4,50]);
@@ -83,7 +110,7 @@ module BigWaterTube()
 {
     difference() {
         union() {
-            cylinder(d=21-0.6, h=100);
+            cylinder(d=21-0.2, h=100);
             cylinder(d=25, h=5);
         }
         translate([0,-13,50])cube([26,26,120]);
@@ -103,19 +130,22 @@ module BigWaterTube()
 
 module BigTubeLid()
 {
+    
+    tube_x = 26-0.4;
+    
     difference() {
-        translate([10.2,44.2,0.1])cube([26-0.2,15.8,25.8]);
-        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=25.2,h=18);
+        translate([10.2-(tube_x-(26-0.2))/2,44.2,(tube_x-(26-0.2))/2+0.3])cube([tube_x,15.8,tube_x]);
+        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=25.4,h=18);
         translate([16.3,30,10])cube([8,50,8]);
         
         translate([(box_size+box_gap) *2 * 0 + box_size+box_gap-6 + 24/2+7+2.5,60-5,-1])cylinder(d=3,h=10);
     }
     
     difference() {
-        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21,h=12);
+        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21.2,h=12);
      
         translate([16.3,30,10])cube([8,50,8]);
-        translate([16.3,56.4,10])rotate([0,0,45])cube([8,20,8]);
+       // translate([16.3,56.4,10])rotate([0,0,45])cube([8,20,8]);
     }
     
     
@@ -249,7 +279,7 @@ module TubeSep()
 module WaterTower()
 {
     difference() {
-        translate([0,0,0])cube([110,40,30]);
+        translate([0,0,0])cube([110,40,32]);
     
        
         translate([5,40-5,-1])cylinder(d=3.4,h=100);
@@ -257,21 +287,21 @@ module WaterTower()
         
         
         
-        translate([40,4-0.5,-1])cube([65,23,40]);
+        translate([60,4-0.5,-1])cube([45,23,40]);
         
-        translate([45,4+11,11+4])rotate([0,90,0])cylinder(d=23,h=100);
-        translate([4+8+6-0.1,4+11,11+4])rotate([0,90,0])cylinder(d=21,h=100);
+        translate([55,4+11,11+5])rotate([0,90,0])cylinder(d=26,h=100);
+        translate([4+8+6-0.1,4+11,11+5])rotate([0,90,0])cylinder(d=26,h=100);
       //   translate([4+8+6-0.1,4+11,11+4])rotate([0,90,0])cylinder(d=26,h=100);
         
-        translate([-1,4+11,11+4])rotate([0,90,0])cylinder(d=4,h=100);
+        translate([-1,4+11,11+5])rotate([0,90,0])cylinder(d=4,h=100);
         //translate([4,6,6])cube([8+6,18,18]);
         
-        translate([4.1,2,2])cube([26,26,26]);
+        translate([4.1,2,2])cube([50,26,26]);
         
     }
     
-    translate([4.1,20,5])cube([14,2,20-1]);
-    translate([4.1,20-12,5])cube([14,2,20-1]);
+    translate([4.1,22,5])cube([16,2,20-1]);
+    translate([4.1,20-14,5])cube([16,2,20-1]);
    // translate([0,6+4,6+4])cube([22,2,4]);
     
     
