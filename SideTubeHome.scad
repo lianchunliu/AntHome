@@ -71,8 +71,23 @@ base_height = 170;
 
 //translate([0,170,0])
 
-rotate([-90,0,0])
-LeftScaffold();
+//rotate([-90,0,0])
+//LeftScaffold();
+
+SmallBase();
+
+
+module SmallBase()
+{
+    
+    difference() {
+        cube([300,20,30]);
+         translate([0,20-base_height,0])AntHoles4();
+    }
+    
+    
+   
+}
 
 
 module LeftScaffold()
