@@ -71,6 +71,7 @@ base_height = 170;
 
 //translate([0,170,0])
 
+rotate([-90,0,0])
 LeftScaffold();
 
 
@@ -93,7 +94,7 @@ module LeftScaffold()
         translate([300-5, -5, -4]) cylinder(d=3.4,h=50);
          for (i = [0:9]) {
         
-            translate([23+(box_size+box_gap) *2 * i,30,13.2]) rotate([90,0,0]) color("RED")     cylinder(d=26,h=60);
+            translate([23+(box_size+box_gap) *2 * i,30,13.2]) rotate([90,0,0]) color("RED")     cylinder(d=25.8,h=60);
         }
     }
     
