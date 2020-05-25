@@ -58,12 +58,32 @@ base_height = 170;
 
 //TubeConnector(26);
 
-WaterTowerFoot();
+//WaterTowerFoot();
+
 
 //difference() {
 //cylinder(d=25,h=4);
 //cylinder(d=10,h=4);
 //}
+
+
+TubeConnector(16);
+
+module TubeConnector(x)
+{
+        difference() {
+            union() {
+                cylinder(d=x,h=10);
+                cylinder(d=9,h=18);
+            }
+            cylinder(d=7,h=20);
+            
+            translate([0,0,-4])rotate([0,45,0])cube([20,8,20], center=true);
+        }
+    
+}
+
+
 module WaterTowerFoot()
 {
     difference() {
@@ -72,6 +92,7 @@ module WaterTowerFoot()
     }
 }
 
+/*
 module TubeConnector(x)
 {
     difference() {
@@ -86,6 +107,7 @@ module TubeConnector(x)
     
         
 }
+*/
 
 module TubeRoomSep()
 {
