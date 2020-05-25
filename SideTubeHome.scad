@@ -67,7 +67,40 @@ base_height = 170;
 //}
 
 
-TubeConnector(16);
+//TubeConnector(16);
+
+//translate([0,170,0])
+
+LeftScaffold();
+
+
+module LeftScaffold()
+{
+    
+    difference() {
+        union() {
+            translate([0,-120,0])cube([10,120,30]);
+            
+            translate([0,-10,0])cube([300,10,30]);
+            translate([10,-10,-2])cube([300-10,10,30]);
+        }
+        
+        translate([0,-120,0]) {
+        translate([5, 5, -1]) cylinder(d=3.4,h=50);
+        translate([5, 300-60+5-10-110-10, -1]) cylinder(d=3.4,h=50);
+        }
+        
+        translate([300-5, -5, -4]) cylinder(d=3.4,h=50);
+         for (i = [0:9]) {
+        
+            translate([23+(box_size+box_gap) *2 * i,30,13.2]) rotate([90,0,0]) color("RED")     cylinder(d=26,h=60);
+        }
+    }
+    
+    
+   
+    //translate([2.5,-10,0])StepDoors();
+}
 
 module TubeConnector(x)
 {
