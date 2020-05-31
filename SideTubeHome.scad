@@ -53,7 +53,7 @@ base_height = 170;
 
 //BigWaterTube();
 
-//TubeRoom(55);
+TubeRoom(65);
 //translate([0,0,-2])TubeRoomSep();
 
 //TubeConnector(26);
@@ -74,7 +74,8 @@ base_height = 170;
 //rotate([-90,0,0])
 //LeftScaffold();
 
-SmallBase();
+//rotate([-90,0,0])
+//SmallBase();
 
 
 module SmallBase()
@@ -83,9 +84,13 @@ module SmallBase()
     difference() {
         cube([300,20,30]);
          translate([0,20-base_height,0])AntHoles4();
+       translate([10,-10,4])cube([80,40, 30-8]);
+    translate([96,-10,4])cube([80,40, 30-8]);
+    translate([96+80+4,-10,4])cube([80,40, 30-8]);
+    translate([96+80+8+80,-10,4])cube([25,40, 30-8]);
     }
     
-    
+     
    
 }
 
@@ -170,7 +175,7 @@ module TubeRoomSep()
 module TubeRoom(tube_height)
 {
     difference() {
-        cylinder(d=21-0.0,h=tube_height);
+        cylinder(d=21-0.24,h=tube_height);
         translate([-1,-4.4,-2])MyCube(8,22,tube_height+8);
         translate([-9,-4,-2])cube([3,8,6]);
         
@@ -179,7 +184,7 @@ module TubeRoom(tube_height)
     }
     
     difference() {
-        cylinder(d=21-0.2,h=2);
+        cylinder(d=21-0.24,h=2);
         translate([-9,-4,-2])cube([3,8,6]);
         translate([-5.0+1,-3,-1]) cube([7,7,4]);
     }
@@ -227,7 +232,7 @@ module BigTubeLid()
     }
     
     difference() {
-        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21.2,h=12);
+        translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21,h=12);
      
         translate([16.3,30,10])cube([8,50,8]);
        // translate([16.3,56.4,10])rotate([0,0,45])cube([8,20,8]);
@@ -236,15 +241,17 @@ module BigTubeLid()
     
 }
 
+
 module WaterTubeHead() 
 {
     difference() {
         union() {
         cylinder(d=21,h=10);
-        translate([-5,-5,0]) cube([10,10,30]);
+        translate([-5,1,-8]) cube([10,4,15]);
+            translate([-2,-5,0]) cube([4,4,40]);
         }
         
-        translate([-5+2*1+2,-5+1,0]) cube([2,2,30]);
+        translate([-5+2*1+2,-5+1,-2]) cube([2,2,50]);
         //for (i = [1:2])
         //    translate([-5+2*i+2,-5+1,0]) cube([2,2,30]);
        // for (i = [0:3])
@@ -252,9 +259,9 @@ module WaterTubeHead()
        // for (i = [0:3])
        //     translate([-5+2*i+2,-5+5,0]) cube([1,1,30]);
         //for (i = [0:3:3])
-            translate([-5+2*0+1,-5+7,-1]) cube([8,2,40]);
+            translate([-5+2*0+1,-5+7,-10]) cube([8,2,40]);
         
-         translate([-8,-15,10])rotate([0,0,0])cube([16,16,160]);
+        // translate([-8,-15,10])rotate([0,0,0])cube([16,16,160]);
         
     }
     
