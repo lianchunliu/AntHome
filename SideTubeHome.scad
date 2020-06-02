@@ -77,6 +77,7 @@ TubeRoom(65);
 //rotate([-90,0,0])
 //SmallBase();
 
+//cylinder(d=21,h=2);
 
 module SmallBase()
 {
@@ -175,7 +176,7 @@ module TubeRoomSep()
 module TubeRoom(tube_height)
 {
     difference() {
-        cylinder(d=21-0.24,h=tube_height);
+        cylinder(d=21-0.4,h=tube_height);
         translate([-1,-4.4,-2])MyCube(8,22,tube_height+8);
         translate([-9,-4,-2])cube([3,8,6]);
         
@@ -184,7 +185,7 @@ module TubeRoom(tube_height)
     }
     
     difference() {
-        cylinder(d=21-0.24,h=2);
+        cylinder(d=21-0.4,h=2);
         translate([-9,-4,-2])cube([3,8,6]);
         translate([-5.0+1,-3,-1]) cube([7,7,4]);
     }
