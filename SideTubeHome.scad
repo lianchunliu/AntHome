@@ -48,12 +48,17 @@ base_height = 170;
 
 //FullSizeWaterBox();
 
-//rotate([90,0,0])
-//BigTubeLid();
+rotate([90,0,0])
+BigTubeLid();
 
 //BigWaterTube();
 
-TubeRoom(65);
+//color("GREEN")
+//translate([23.1,120,13])
+//rotate([90,0,0])
+//TubeRoom(65);
+
+
 //translate([0,0,-2])TubeRoomSep();
 
 //TubeConnector(26);
@@ -235,9 +240,11 @@ module BigTubeLid()
     difference() {
         translate([11.1+10+2,44+4,1+12])rotate([-90,0,0])cylinder(d=21,h=12);
      
-        translate([16.3,30,10])cube([8,50,8]);
+        color("RED")translate([16.3,48,10])rotate([0,0,-13.2])cube([8,18,8]);
        // translate([16.3,56.4,10])rotate([0,0,45])cube([8,20,8]);
     }
+    
+   
     
     
 }
