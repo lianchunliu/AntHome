@@ -8,7 +8,7 @@ base_height = 170;
 //translate([300,165,0])rotate([0,0,90])
 //translate([0,40,0])
 //rotate([0,0,90])
-//SideTubeHome();
+SideTubeHome();
 
 //translate([2.25,10,40])Steps();
 
@@ -48,8 +48,8 @@ base_height = 170;
 
 //FullSizeWaterBox();
 
-rotate([90,0,0])
-BigTubeLid();
+//rotate([90,0,0])
+//BigTubeLid();
 
 //BigWaterTube();
 
@@ -83,6 +83,55 @@ BigTubeLid();
 //SmallBase();
 
 //cylinder(d=21,h=2);
+
+//translate([230,135,0])
+//color("RED")
+//rotate([-90,0,0])
+//BaseLid();
+
+//SimpleBase();
+
+module BaseLid()
+{
+    difference() {
+        union() {
+       translate([0,0,30])cube([70,25,4]);
+       translate([16,12,18])cube([54,13,12]);
+    translate([42,12,4])cube([28,13,26]);
+            color("GREEN")translate([35+16,12+4+2,18+4])rotate([0,90,0])cylinder(d=10,h=30);
+        }
+        color("GREEN")translate([15,12-0.1,18-0.1])cube([30-2+8,8,8]);
+        color("GREEN")translate([35+8,12+4+2,18+4])rotate([0,90,0])cylinder(d=8,h=40);
+        translate([-230,-135,0])translate([0,-30+5,0])AntHoles4(); 
+         
+    }
+    
+    
+    
+}
+
+module SimpleBase()
+{
+    difference() {
+        union() {
+            SideTubeBase();
+            // translate([270,154,22])rotate([0,90,0])cylinder(d=10,h=50-5);
+    
+
+        }
+        translate([0,-30+5,0])AntHoles4();  
+        translate([-1,-10,-1])cube([320,150,50]);
+        translate([250-4,150-10+6,18-0.1])cube([61,14,13]);
+        translate([272,150-10+6,4])cube([61,14,18]);
+     //   translate([270,154,22])rotate([0,90,0])cylinder(d=8,h=50);
+    }
+     
+    difference() {
+            translate([0,135,0])cube([300,12,30]);
+            translate([0,-30+5,0])AntHoles4();  
+    }
+        
+}
 
 module SmallBase()
 {
