@@ -16,9 +16,14 @@ difference() {
     
     for (i = [0:5]) {
         
-        translate([4+4*i,-2,110])cube([2,12,35]);
+        translate([4+4*i,-2,110])cube([2,32,35]);
+        translate([4+4*i,2,130])cube([2,12,35]);
         
     }
+    
+    translate([-1,4,110])cube([55,2,35]);
+    translate([-1,4+4,110])cube([55,2,35]);
+   // translate([-1,4+8,110])cube([55,2,35]);
     
 }
 //translate([10,0,0])cube([10,50,10]);
