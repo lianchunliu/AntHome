@@ -86,10 +86,35 @@ SideTubeHome();
 
 //translate([230,135,0])
 //color("RED")
-//rotate([-90,0,0])
-//BaseLid();
+//MirrorBaseLid();
 
-//SimpleBase();
+color("RED")
+translate([10.2,44.2,0.1])
+GrandTubeLid();
+
+module GrandTubeLid()
+{
+    cube([26-0.1,15.85,25.8]);
+    translate([27.25,0,0])cube([26-0.1,15.85,25.8]);
+    
+}
+
+
+module MirrorBaseLid() 
+{
+    rotate([90,0,0])
+    mirror([0,180,0])BaseLid();
+
+}
+
+//MirrorBase();
+
+module MirrorBase() {
+difference() {
+    mirror([0,180,0])SimpleBase();
+   translate([0,-180,0])cube([220,200,50]);
+} 
+}
 
 module BaseLid()
 {
